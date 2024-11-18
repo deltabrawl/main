@@ -1,4 +1,4 @@
-/* Сброс стандартных стилей и оформление для всего сайта */
+/* Общий сброс стилей и базовые настройки */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,139 +6,12 @@ body, html {
     font-family: Arial, sans-serif;
     color: #fff;
     text-align: left;
-    background: url('https://i.imgur.com/cJurAdd.png') no-repeat center center fixed; /* Новый задний фон */
+    background: url('https://i.imgur.com/cJurAdd.png') no-repeat center center fixed;
     background-size: cover;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
 }
 
-/* Контейнер для анимации */
-.container {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    flex-wrap: wrap; /* Добавлено для адаптивности */
-}
-
-/* Слева - текст */
-.left-content {
-    max-width: 100%;
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideInLeft 1s forwards;
-    padding-top: 50px; /* Отступ сверху, чтобы текст не перекрывался */
-    margin-left: 250px; /* Отступ для контента, чтобы не перекрывался боковой панелью */
-    margin-top: -100px; /* Перемещаем немного вверх */
-}
-
-/* Справа - картинка (логотип) */
-.right-image {
-    margin-top: -150px; /* Перемещаем немного вверх */
-    margin-left: 100px; /* Перемещаем немного правее */
-}
-
-.right-image img {
-    width: 600px; /* Устанавливаем ширину логотипа */
-    max-width: 100%; /* Логотип не будет выходить за пределы своего контейнера */
-    opacity: 0;
-    animation: fadeInRight 1s forwards;
-}
-
-/* Анимации */
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-@keyframes fadeInRight {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Стили для заголовка */
-header {
-    position: absolute;
-    top: 10px; /* Сдвиг заголовка вверх */
-    left: 20px;
-    z-index: 1;
-}
-.header-background {
-    background: rgba(0, 0, 0, 0.7); /* Темный фон для заголовка */
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-header h1 {
-    margin: 0;
-    font-size: 3rem;
-    color: #fff;
-}
-
-/* Стили для секции */
-section {
-    padding: 40px 20px;
-    background: rgba(0, 0, 0, 0.7); /* Темный фон для текста */
-    position: relative;
-    z-index: 1;
-    margin-top: 50px; /* Отступ сверху, чтобы фон не накладывался на заголовок */
-    border-radius: 10px; /* Скругление углов */
-}
-section p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-/* Кнопка */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #1e3a8a;
-    background: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-.btn:hover {
-    background: #e5e5e5;
-}
-
-/* Стили для футера */
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.7); /* Темный фон для футера */
-    padding: 10px;
-}
-
-/* Стили для ссылки на канал */
-.channel-link {
-    color: #4ade80;
-    text-decoration: none;
-}
-.channel-link:hover {
-    text-decoration: underline;
-}
-
-/* Общие стили */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-/* Стили для боковой панели */
+/* Боковая панель */
 .sidebar {
     width: 250px;
     position: fixed;
@@ -182,64 +55,197 @@ body {
     font-size: 1rem;
 }
 
-/* Основной контент */
-.left-content {
-    flex: 1;
+/* Контейнер основного содержимого */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: flex-start;
+    min-height: 100vh;
+    position: relative;
     margin-left: 250px; /* Учитываем ширину sidebar */
+    flex-wrap: wrap;
 }
 
-.right-image {
-    flex: 1;
+/* Слева - текст */
+.left-content {
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 200px;
+    animation: slideInLeft 1s forwards;
 }
 
-/* Стили для футера */
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Кнопка */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #1e3a8a;
+    background: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn:hover {
+    background: #e5e5e5;
+}
+
+/* Справа - логотип */
+.right-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 100px;
+}
+
+/* Футер */
 footer {
-    background-color: #000;
-    color: white;
+    position: relative;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    font-size: 0.9rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
 }
 
-footer p {
-    margin: 0;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-    
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left-content, .right-image {
-        margin-left: 0;
-    }
-}
-/* Стили для секции команды */
+/* Стили для команды */
 .team-info {
     margin-top: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Темный фон, как у остальной части сайта */
+    background: rgba(0, 0, 0, 0.7);
     padding: 15px;
     border-radius: 10px;
 }
 
 .team-info p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 5px 0;
 }
 
 .team-info a {
-    color: #4ade80; /* Цвет ссылок */
+    color: #4ade80;
     text-decoration: none;
 }
-
 .team-info a:hover {
     text-decoration: underline;
+}
+
+/* Анимации */
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .container {
+        margin-left: 200px;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .left-content {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .right-image img {
+        width: 400px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+
+    /* Фон для мобильных устройств */
+    body {
+        background: url('https://i.imgur.com/cJurAdd.png') no-repeat center center;
+        background-size: cover;
+        background-attachment: scroll; /* Исправление для мобильных браузеров */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .container {
+        margin-left: 150px;
+    }
+
+    .left-content {
+        margin-top: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .right-image img {
+        width: 300px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .sidebar {
+        width: 120px;
+    }
+
+    .container {
+        margin-left: 120px;
+    }
+
+    .left-content {
+        padding: 8px;
+    }
+
+    .right-image img {
+        width: 200px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
 }
